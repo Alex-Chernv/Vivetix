@@ -1,24 +1,24 @@
 import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {Main} from './pages/Main.js';
+import {Ayuda} from './pages/Ayuda.js';
+import {Contacto} from './pages/Contacto.js';
+import {Navbar} from './components/Navbar/Navbar.js';
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Vivetix.
-        </p>
-        <a
-          className="App-link"
-          href="https://vivetix.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Original Site
-        </a>
-      </header>
-    </div>
+        <BrowserRouter>
+          <div className="container">
+            <Navbar/>
+            <Switch>
+              <Route path={'/'} exact component={Main}/>
+              <Route path={'/ayuda'} component={Ayuda}/>
+              <Route path={'/contacto'} component={Contacto}/>
+            </Switch>
+          </div>
+        </BrowserRouter>
   );
-}
+};
 
 export default App;
